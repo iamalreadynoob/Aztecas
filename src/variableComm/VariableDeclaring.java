@@ -214,9 +214,11 @@ public class VariableDeclaring
                     break;
 
                 case "bnum":
-                    Short shortVal = null;
-                    if (command.get(location).equals("nil")) shortVal = null;
-                    else if ()
+                    Integer numericVal = null;
+                    if (command.get(location).equals("nil")) numericVal = null;
+                    else if (isNumericBoolean(command.get(location))) numericVal = Integer.parseInt(command.get(location));
+                    var.insideAdd(numericVal);
+                    break;
 
             }
 
@@ -327,11 +329,11 @@ public class VariableDeclaring
     {
         boolean isOkay = true;
 
-        Short val = null;
+        Integer val = null;
 
         try
         {
-            val = Short.parseShort(value);
+            val = Integer.parseInt(value);
         }
         catch (Exception e)
         {

@@ -253,6 +253,31 @@ public class VariableStorage
         lsymV.add(value);
     }
 
+    public void insideAdd(Integer value)
+    {
+        NumericBoolean newNumeric = new NumericBoolean(value);
+        bnumV.add(newNumeric);
+
+    }
+
+    public void insideAdd(String value, int typeCode)
+    {
+
+        switch (typeCode)
+        {
+            case 0:
+                Binary newBinary = new Binary(value);
+                binV.add(newBinary);
+                break;
+
+            case 1:
+                ExpandedBoolean newExpanded = new ExpandedBoolean(value);
+                ltruthV.add(newExpanded);
+                break;
+        }
+
+    }
+
     public void addName(String name, int typeCode)
     {
         switch (typeCode)

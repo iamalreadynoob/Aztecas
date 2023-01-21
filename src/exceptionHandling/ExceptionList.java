@@ -1,0 +1,8 @@
+package exceptionHandling;
+
+public enum ExceptionList
+{
+
+    UNDEFINED_DATATYPE, AVOIDED_VARIABLE_NAME, EXIST_VARIABLE_NAME, NOT_INTEGER, NOT_LONG, NOT_DOUBLE
+
+}

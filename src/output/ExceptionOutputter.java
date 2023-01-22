@@ -34,6 +34,13 @@ public class ExceptionOutputter
                 System.out.println("Variable does not have a Double value as excepted");
                 break;
 
+            case NOT_BOOLEAN:
+                System.out.println("Variable does not have a Boolean value as excepted");
+                break;
+
+            case DECLARETION_ERROR:
+                System.out.println("There is a problem in declaretion");
+
         }
 
         System.exit(1);

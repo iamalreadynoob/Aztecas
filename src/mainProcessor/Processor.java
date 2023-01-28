@@ -4,6 +4,7 @@ import keywords.KeywordDetection;
 import keywords.KeywordTypes;
 import storage.ArrayStorage;
 import storage.VariableStorage;
+import variableComm.VariableDeclaring;
 
 import java.util.ArrayList;
 
@@ -46,6 +47,15 @@ public class Processor
                 switch (keyword)
                 {
                     case VAR:
+                        if (currentCommand.get(i).charAt(0) != 'a')
+                        {
+                            new VariableDeclaring(currentCommand, variableStorage);
+                        }
+
+                        else
+                        {
+
+                        }
 
 
                 }

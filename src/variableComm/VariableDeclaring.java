@@ -16,7 +16,7 @@ public class VariableDeclaring
 
     ArrayList<String> command;
 
-    public VariableDeclaring(ArrayList<String> command, VariableStorage var, ArrayStorage arr)
+    public VariableDeclaring(ArrayList<String> command, VariableStorage var)
     {
 
         this.command = command;
@@ -29,11 +29,7 @@ public class VariableDeclaring
             datatype = command.get(location);
             location++;
         }
-        else
-        {
-            ExceptionOutputter out = new ExceptionOutputter();
-            out.getOutput(ExceptionList.UNDEFINED_DATATYPE);
-        }
+        else new ExceptionOutputter().getOutput(ExceptionList.UNDEFINED_DATATYPE);
 
         if (isVariable(command.get(location)))
         {
@@ -404,7 +400,7 @@ public class VariableDeclaring
 
     private boolean tryDatatype(String type)
     {
-        String[] datatypes = {"num", "lnum", "snum", "bnum", "bin", "truth", "ltruth", "sym", "lsym", "anum", "alnum", "asnum", "abnum", "abin", "atruth", "altruth", "asym", "alsym"};
+        String[] datatypes = {"num", "lnum", "snum", "bnum", "bin", "truth", "ltruth", "sym", "lsym"};
 
         boolean isDatatype = false;
 

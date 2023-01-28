@@ -226,6 +226,52 @@ public class ArrayStorage
 
     //getter functions
 
+    public ArrayList<String> getVarNames(int typeCode)
+    {
+        ArrayList<String> temp = null;
+
+        switch (typeCode)
+        {
+            case 0:
+                temp = anumN;
+                break;
+
+            case 1:
+                temp = alnumN;
+                break;
+
+            case 2:
+                temp = asnumN;
+                break;
+
+            case 3:
+                temp = abnumN;
+                break;
+
+            case 4:
+                temp = abinN;
+                break;
+
+            case 5:
+                temp = atruthN;
+                break;
+
+            case 6:
+                temp = altruthN;
+                break;
+
+            case 7:
+                temp = asymN;
+                break;
+
+            case 8:
+                temp = alsymN;
+                break;
+        }
+
+        return temp;
+    }
+
     public Integer getAnumItem(String name, int index)
     {
         Integer value = null;

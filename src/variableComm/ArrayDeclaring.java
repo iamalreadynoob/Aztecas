@@ -38,13 +38,107 @@ public class ArrayDeclaring
                     {
                         ArrayList<Integer> temp = new ArrayList<>();
                         arr.createArray(0, temp, command.get(location));
+                        isDefined = true;
+                        location++;
                     }
+                    break;
+                case "alnum":
+                    if (isUnique(1, command.get(location), arr))
+                    {
+                        ArrayList<Integer> temp = new ArrayList<>();
+                        arr.createArray(1, temp, command.get(location));
+                        isDefined = true;
+                        location++;
+                    }
+                    break;
+
+                case "asnum":
+                    if (isUnique(2, command.get(location), arr))
+                    {
+                        ArrayList<Integer> temp = new ArrayList<>();
+                        arr.createArray(2, temp, command.get(location));
+                        isDefined = true;
+                        location++;
+                    }
+                    break;
+
+                case "abnum":
+                    if (isUnique(3, command.get(location), arr))
+                    {
+                        ArrayList<Integer> temp = new ArrayList<>();
+                        arr.createArray(3, temp, command.get(location));
+                        isDefined = true;
+                        location++;
+                    }
+                    break;
+
+                case "abin":
+                    if (isUnique(4, command.get(location), arr))
+                    {
+                        ArrayList<Integer> temp = new ArrayList<>();
+                        arr.createArray(4, temp, command.get(location));
+                        isDefined = true;
+                        location++;
+                    }
+                    break;
+
+                case "atruth":
+                    if (isUnique(5, command.get(location), arr))
+                    {
+                        ArrayList<Integer> temp = new ArrayList<>();
+                        arr.createArray(5, temp, command.get(location));
+                        isDefined = true;
+                        location++;
+                    }
+                    break;
+
+                case "altruth":
+                    if (isUnique(6, command.get(location), arr))
+                    {
+                        ArrayList<Integer> temp = new ArrayList<>();
+                        arr.createArray(6, temp, command.get(location));
+                        isDefined = true;
+                        location++;
+                    }
+                    break;
+
+                case "asym":
+                    if (isUnique(7, command.get(location), arr))
+                    {
+                        ArrayList<Integer> temp = new ArrayList<>();
+                        arr.createArray(7, temp, command.get(location));
+                        isDefined = true;
+                        location++;
+                    }
+                    break;
+
+                case "alsym":
+                    if (isUnique(8, command.get(location), arr))
+                    {
+                        ArrayList<Integer> temp = new ArrayList<>();
+                        arr.createArray(8, temp, command.get(location));
+                        isDefined = true;
+                        location++;
+                    }
+                    break;
 
             }
 
             if (!isDefined) new ExceptionOutputter().getOutput(ExceptionList.EXIST_VARIABLE_NAME);
         }
         else new ExceptionOutputter().getOutput(ExceptionList.AVOIDED_VARIABLE_NAME);
+
+        if (location < command.size())
+        {
+            if (command.get(location).equals("="))
+            {
+
+                location++;
+
+            }
+
+            else new ExceptionOutputter().getOutput(ExceptionList.DECLARETION_ERROR);
+        }
 
     }
 

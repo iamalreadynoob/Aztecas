@@ -2,6 +2,9 @@ package variableComm;
 
 import exceptionHandling.ExceptionList;
 import output.ExceptionOutputter;
+import predefinedDatatypes.Binary;
+import predefinedDatatypes.ExpandedBoolean;
+import predefinedDatatypes.NumericBoolean;
 import storage.ArrayStorage;
 import storage.VariableStorage;
 
@@ -19,6 +22,7 @@ public class ArrayDeclaring
 
         int location = 0;
         String datatype = null;
+        String arrayName = null;
 
         if (isDatatype(command.get(location)))
         {
@@ -38,6 +42,7 @@ public class ArrayDeclaring
                     {
                         ArrayList<Integer> temp = new ArrayList<>();
                         arr.createArray(0, temp, command.get(location));
+                        arrayName = command.get(location);
                         isDefined = true;
                         location++;
                     }
@@ -47,6 +52,7 @@ public class ArrayDeclaring
                     {
                         ArrayList<Integer> temp = new ArrayList<>();
                         arr.createArray(1, temp, command.get(location));
+                        arrayName = command.get(location);
                         isDefined = true;
                         location++;
                     }
@@ -57,6 +63,7 @@ public class ArrayDeclaring
                     {
                         ArrayList<Integer> temp = new ArrayList<>();
                         arr.createArray(2, temp, command.get(location));
+                        arrayName = command.get(location);
                         isDefined = true;
                         location++;
                     }
@@ -67,6 +74,7 @@ public class ArrayDeclaring
                     {
                         ArrayList<Integer> temp = new ArrayList<>();
                         arr.createArray(3, temp, command.get(location));
+                        arrayName = command.get(location);
                         isDefined = true;
                         location++;
                     }
@@ -77,6 +85,7 @@ public class ArrayDeclaring
                     {
                         ArrayList<Integer> temp = new ArrayList<>();
                         arr.createArray(4, temp, command.get(location));
+                        arrayName = command.get(location);
                         isDefined = true;
                         location++;
                     }
@@ -87,6 +96,7 @@ public class ArrayDeclaring
                     {
                         ArrayList<Integer> temp = new ArrayList<>();
                         arr.createArray(5, temp, command.get(location));
+                        arrayName = command.get(location);
                         isDefined = true;
                         location++;
                     }
@@ -97,6 +107,7 @@ public class ArrayDeclaring
                     {
                         ArrayList<Integer> temp = new ArrayList<>();
                         arr.createArray(6, temp, command.get(location));
+                        arrayName = command.get(location);
                         isDefined = true;
                         location++;
                     }
@@ -107,6 +118,7 @@ public class ArrayDeclaring
                     {
                         ArrayList<Integer> temp = new ArrayList<>();
                         arr.createArray(7, temp, command.get(location));
+                        arrayName = command.get(location);
                         isDefined = true;
                         location++;
                     }
@@ -117,6 +129,7 @@ public class ArrayDeclaring
                     {
                         ArrayList<Integer> temp = new ArrayList<>();
                         arr.createArray(8, temp, command.get(location));
+                        arrayName = command.get(location);
                         isDefined = true;
                         location++;
                     }
@@ -134,6 +147,99 @@ public class ArrayDeclaring
             {
 
                 location++;
+
+                if (command.get(location).equals("<"))
+                {
+
+                    location++;
+
+                    while (!command.get(location).equals(">"))
+                    {
+
+                        if (datatype.equals("anum"))
+                        {
+                            if (isInteger(command.get(location)))
+                            {
+                                arr.addItem(arrayName, Integer.parseInt(command.get(location)));
+                                location++;
+                            }
+                            else new ExceptionOutputter().getOutput(ExceptionList.NOT_INTEGER);
+                        }
+
+                        else if (datatype.equals("alnum"))
+                        {
+                            if (isLong(command.get(location)))
+                            {
+                                arr.addItem(arrayName, Long.parseLong(command.get(location)));
+                                location++;
+                            }
+                            else new ExceptionOutputter().getOutput(ExceptionList.NOT_LONG);
+                        }
+
+                        else if (datatype.equals("asnum"))
+                        {
+                            if (isDouble(command.get(location)))
+                            {
+                                arr.addItem(arrayName, Double.parseDouble(command.get(location)));
+                                location++;
+                            }
+                            else new ExceptionOutputter().getOutput(ExceptionList.NOT_DOUBLE);
+                        }
+
+                        else if (datatype.equals("abnum"))
+                        {
+                            if (isInteger(command.get(location)))
+                            {
+                                NumericBoolean temp = new NumericBoolean(Integer.parseInt(command.get(location)));
+                                arr.addItem(arrayName, temp);
+                                location++;
+                            }
+                            else new ExceptionOutputter().getOutput(ExceptionList.NOT_INTEGER);
+                        }
+
+                        else if (datatype.equals("abin"))
+                        {
+                            Binary temp = new Binary(command.get(location));
+                            arr.addItem(arrayName, temp);
+                            location++;
+                        }
+
+                        else if (datatype.equals("atruth"))
+                        {
+                            Boolean temp;
+
+                            if (command.get(location).equals("nil")) temp = null;
+                            else if (command.get(location).equals("true") || command.get(location).equals("false")) temp = Boolean.parseBoolean(command.get(location));
+                            else new ExceptionOutputter().getOutput(ExceptionList.NOT_BOOLEAN);
+
+                            location++;
+                        }
+
+                        else if (datatype.equals("altruth"))
+                        {
+                            ExpandedBoolean temp = new ExpandedBoolean(command.get(location));
+                            arr.addItem(arrayName, temp);
+                            location++;
+                        }
+
+                        else if (datatype.equals("asym"))
+                        {
+
+                            Character temp = command.get(location).charAt(0);
+                            arr.addItem(arrayName, temp);
+                            location++;
+                        }
+
+                        else if (datatype.equals("alsym"))
+                        {
+                            arr.addItem(arrayName, command.get(location));
+                            location++;
+                        }
+
+                    }
+
+                }
+                else new ExceptionOutputter().getOutput(ExceptionList.DECLARETION_ERROR);
 
             }
 
@@ -219,6 +325,39 @@ public class ArrayDeclaring
         try
         {
             Integer val = Integer.parseInt(value);
+        }
+        catch (Exception e)
+        {
+            isOkay = false;
+        }
+
+        return isOkay;
+    }
+
+    private boolean isLong(String value)
+    {
+        boolean isOkay = true;
+
+        try
+        {
+            Long val = Long.parseLong(value);
+        }
+        catch (Exception e)
+        {
+            isOkay = false;
+        }
+
+        return isOkay;
+    }
+
+    private boolean isDouble(String value)
+    {
+        boolean isOkay = true;
+
+
+        try
+        {
+            Double val = Double.parseDouble(value);
         }
         catch (Exception e)
         {

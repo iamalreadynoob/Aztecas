@@ -4,6 +4,7 @@ import keywords.KeywordDetection;
 import keywords.KeywordTypes;
 import storage.ArrayStorage;
 import storage.VariableStorage;
+import variableComm.ArrayDeclaring;
 import variableComm.VariableDeclaring;
 
 import java.util.ArrayList;
@@ -54,7 +55,7 @@ public class Processor
 
                         else
                         {
-
+                            new ArrayDeclaring(currentCommand, arrayStorage);
                         }
 
 

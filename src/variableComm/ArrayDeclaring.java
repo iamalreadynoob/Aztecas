@@ -38,7 +38,7 @@ public class ArrayDeclaring
             switch (datatype)
             {
                 case "anum":
-                    if (isUnique(0, command.get(location), arr))
+                    if (isUnique(command.get(location), arr))
                     {
                         ArrayList<Integer> temp = new ArrayList<>();
                         arr.createArray(0, temp, command.get(location));
@@ -48,7 +48,7 @@ public class ArrayDeclaring
                     }
                     break;
                 case "alnum":
-                    if (isUnique(1, command.get(location), arr))
+                    if (isUnique(command.get(location), arr))
                     {
                         ArrayList<Integer> temp = new ArrayList<>();
                         arr.createArray(1, temp, command.get(location));
@@ -59,7 +59,7 @@ public class ArrayDeclaring
                     break;
 
                 case "asnum":
-                    if (isUnique(2, command.get(location), arr))
+                    if (isUnique(command.get(location), arr))
                     {
                         ArrayList<Integer> temp = new ArrayList<>();
                         arr.createArray(2, temp, command.get(location));
@@ -70,7 +70,7 @@ public class ArrayDeclaring
                     break;
 
                 case "abnum":
-                    if (isUnique(3, command.get(location), arr))
+                    if (isUnique(command.get(location), arr))
                     {
                         ArrayList<Integer> temp = new ArrayList<>();
                         arr.createArray(3, temp, command.get(location));
@@ -81,7 +81,7 @@ public class ArrayDeclaring
                     break;
 
                 case "abin":
-                    if (isUnique(4, command.get(location), arr))
+                    if (isUnique(command.get(location), arr))
                     {
                         ArrayList<Integer> temp = new ArrayList<>();
                         arr.createArray(4, temp, command.get(location));
@@ -92,7 +92,7 @@ public class ArrayDeclaring
                     break;
 
                 case "atruth":
-                    if (isUnique(5, command.get(location), arr))
+                    if (isUnique(command.get(location), arr))
                     {
                         ArrayList<Integer> temp = new ArrayList<>();
                         arr.createArray(5, temp, command.get(location));
@@ -103,7 +103,7 @@ public class ArrayDeclaring
                     break;
 
                 case "altruth":
-                    if (isUnique(6, command.get(location), arr))
+                    if (isUnique(command.get(location), arr))
                     {
                         ArrayList<Integer> temp = new ArrayList<>();
                         arr.createArray(6, temp, command.get(location));
@@ -114,7 +114,7 @@ public class ArrayDeclaring
                     break;
 
                 case "asym":
-                    if (isUnique(7, command.get(location), arr))
+                    if (isUnique(command.get(location), arr))
                     {
                         ArrayList<Integer> temp = new ArrayList<>();
                         arr.createArray(7, temp, command.get(location));
@@ -125,7 +125,7 @@ public class ArrayDeclaring
                     break;
 
                 case "alsym":
-                    if (isUnique(8, command.get(location), arr))
+                    if (isUnique(command.get(location), arr))
                     {
                         ArrayList<Integer> temp = new ArrayList<>();
                         arr.createArray(8, temp, command.get(location));
@@ -297,22 +297,29 @@ public class ArrayDeclaring
         return isOkay;
     }
 
-    private boolean isUnique(int typeCode, String name, ArrayStorage var)
+    private boolean isUnique(String name, ArrayStorage var)
     {
         boolean isOkay = true;
 
-        ArrayList<String> temp = var.getVarNames(typeCode);
-
-        for (int i = 0; i < temp.size(); i++)
+        for (int i = 0; i < 9; i++)
         {
+            ArrayList<String> temp = var.getVarNames(i);
 
-            if (name.equals(temp.get(i)))
+            for (int j = 0; j < temp.size(); j++)
             {
-                isOkay = false;
-                break;
+
+                if (name.equals(temp.get(j)))
+                {
+                    isOkay = false;
+                    break;
+                }
+
             }
 
+            if (!isOkay) break;
+
         }
+
 
 
         return isOkay;

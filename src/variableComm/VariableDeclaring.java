@@ -38,7 +38,7 @@ public class VariableDeclaring
             switch (datatype)
             {
                 case "num":
-                    if (isUnique(0, command.get(location), var))
+                    if (isUnique(command.get(location), var))
                     {
                         var.addName(command.get(location), 0);
                         location++;
@@ -47,7 +47,7 @@ public class VariableDeclaring
                     break;
 
                 case "lnum":
-                    if (isUnique(1, command.get(location), var))
+                    if (isUnique(command.get(location), var))
                     {
                         var.addName(command.get(location), 1);
                         location++;
@@ -57,7 +57,7 @@ public class VariableDeclaring
                     break;
 
                 case "snum":
-                    if (isUnique(2, command.get(location), var))
+                    if (isUnique(command.get(location), var))
                     {
                         var.addName(command.get(location), 2);
                         location++;
@@ -67,7 +67,7 @@ public class VariableDeclaring
                     break;
 
                 case "bnum":
-                    if (isUnique(3, command.get(location), var))
+                    if (isUnique(command.get(location), var))
                     {
                         var.addName(command.get(location), 3);
                         location++;
@@ -77,7 +77,7 @@ public class VariableDeclaring
                     break;
 
                 case "bin":
-                    if (isUnique(4, command.get(location), var))
+                    if (isUnique(command.get(location), var))
                     {
                         var.addName(command.get(location), 4);
                         location++;
@@ -87,7 +87,7 @@ public class VariableDeclaring
                     break;
 
                 case "truth":
-                    if (isUnique(5, command.get(location), var))
+                    if (isUnique(command.get(location), var))
                     {
                         var.addName(command.get(location), 5);
                         location++;
@@ -97,7 +97,7 @@ public class VariableDeclaring
                     break;
 
                 case "ltruth":
-                    if (isUnique(6, command.get(location), var))
+                    if (isUnique(command.get(location), var))
                     {
                         var.addName(command.get(location), 6);
                         location++;
@@ -107,7 +107,7 @@ public class VariableDeclaring
                     break;
 
                 case "sym":
-                    if (isUnique(7, command.get(location), var))
+                    if (isUnique(command.get(location), var))
                     {
                         var.addName(command.get(location), 7);
                         location++;
@@ -117,7 +117,7 @@ public class VariableDeclaring
                     break;
 
                 case "lsym":
-                    if (isUnique(8, command.get(location), var))
+                    if (isUnique(command.get(location), var))
                     {
                         var.addName(command.get(location), 8);
                         location++;
@@ -164,7 +164,7 @@ public class VariableDeclaring
                     switch (datatype)
                     {
                         case "num":
-                            if (isUnique(0, command.get(location), var))
+                            if (isUnique(command.get(location), var))
                             {
                                 var.addName(command.get(location), 0);
                                 location++;
@@ -173,7 +173,7 @@ public class VariableDeclaring
                             break;
 
                         case "lnum":
-                            if (isUnique(1, command.get(location), var))
+                            if (isUnique(command.get(location), var))
                             {
                                 var.addName(command.get(location), 1);
                                 location++;
@@ -182,7 +182,7 @@ public class VariableDeclaring
                             break;
 
                         case "snum":
-                            if (isUnique(2, command.get(location), var))
+                            if (isUnique(command.get(location), var))
                             {
                                 var.addName(command.get(location), 2);
                                 location++;
@@ -191,7 +191,7 @@ public class VariableDeclaring
                             break;
 
                         case "bnum":
-                            if (isUnique(3, command.get(location), var))
+                            if (isUnique(command.get(location), var))
                             {
                                 var.addName(command.get(location), 3);
                                 location++;
@@ -200,7 +200,7 @@ public class VariableDeclaring
                             break;
 
                         case "bin":
-                            if (isUnique(4, command.get(location), var))
+                            if (isUnique(command.get(location), var))
                             {
                                 var.addName(command.get(location), 4);
                                 location++;
@@ -209,7 +209,7 @@ public class VariableDeclaring
                             break;
 
                         case "truth":
-                            if (isUnique(5, command.get(location), var))
+                            if (isUnique(command.get(location), var))
                             {
                                 var.addName(command.get(location), 5);
                                 location++;
@@ -218,7 +218,7 @@ public class VariableDeclaring
                             break;
 
                         case "ltruth":
-                            if (isUnique(6, command.get(location), var))
+                            if (isUnique(command.get(location), var))
                             {
                                 var.addName(command.get(location), 6);
                                 location++;
@@ -227,7 +227,7 @@ public class VariableDeclaring
                             break;
 
                         case "sym":
-                            if (isUnique(7, command.get(location), var))
+                            if (isUnique(command.get(location), var))
                             {
                                 var.addName(command.get(location), 7);
                                 location++;
@@ -236,7 +236,7 @@ public class VariableDeclaring
                             break;
 
                         case "lsym":
-                            if (isUnique(8, command.get(location), var))
+                            if (isUnique(command.get(location), var))
                             {
                                 var.addName(command.get(location), 8);
                                 location++;
@@ -495,23 +495,28 @@ public class VariableDeclaring
         return isOkay;
     }
 
-    private boolean isUnique(int typeCode, String name, VariableStorage var)
+    private boolean isUnique(String name, VariableStorage var)
     {
         boolean isOkay = true;
 
-        ArrayList<String> temp = var.getVarNames(typeCode);
-
-        for (int i = 0; i < temp.size(); i++)
+        for (int i = 0; i < 9; i++)
         {
+            ArrayList<String> temp = var.getVarNames(i);
 
-            if (name.equals(temp.get(i)))
+            for (int j = 0; j < temp.size(); j++)
             {
-                isOkay = false;
-                break;
+
+                if (name.equals(temp.get(j)))
+                {
+                    isOkay = false;
+                    break;
+                }
+
             }
 
-        }
+            if (!isOkay) break;
 
+        }
 
         return isOkay;
     }

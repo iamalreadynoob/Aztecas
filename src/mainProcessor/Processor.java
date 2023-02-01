@@ -58,6 +58,12 @@ public class Processor
                             new ArrayDeclaring(currentCommand, arrayStorage);
                         }
 
+                    case RESF:
+                        if (currentCommand.get(i).equals("io"))
+                        {
+
+                        }
+
 
                 }
 

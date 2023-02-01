@@ -40,6 +40,15 @@ public class ExceptionOutputter
 
             case DECLARETION_ERROR:
                 System.out.println("There is a problem in declaretion");
+                break;
+
+            case UNDEFINED_RESERVED_METHOD:
+                System.out.println("Undefined reserved function");
+                break;
+
+            case UNEXPECTED_OPERATOR:
+                System.out.println("Unexpected operator");
+                break;
 
         }
 

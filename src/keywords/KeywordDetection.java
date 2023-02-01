@@ -37,6 +37,22 @@ public class KeywordDetection
 
         }
 
+        if (type == null)
+        {
+            ReservedFunctionsList reserve = new ReservedFunctionsList();
+            ArrayList<String> reserved = reserve.getReserved();
+
+            for (int i = 0; i < reserved.size(); i++)
+            {
+                if (node.equals(reserved.get(i)))
+                {
+                    type = KeywordTypes.RESF;
+                    break;
+                }
+            }
+        }
+
+
         return type;
     }
 

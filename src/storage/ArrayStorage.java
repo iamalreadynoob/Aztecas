@@ -272,6 +272,38 @@ public class ArrayStorage
         return temp;
     }
 
+    public Integer getLength(String arrName)
+    {
+        Integer length = null;
+
+        for (int i = 0; i < 9; i++)
+        {
+            ArrayList<String> varNames = getVarNames(i);
+
+            for (int j = 0; j < varNames.size(); j++)
+            {
+                if (arrName.equals(varNames.get(j)))
+                {
+                    switch (i)
+                    {
+                        case 0: length = anumV.get(j).size(); break;
+                        case 1: length = alnumV.get(j).size(); break;
+                        case 2: length = asnumV.get(j).size(); break;
+                        case 3: length = abnumV.get(j).size(); break;
+                        case 4: length = abinV.get(j).size(); break;
+                        case 5: length = atruthV.get(j).size(); break;
+                        case 6: length = altruthV.get(j).size(); break;
+                        case 7: length = asymV.get(j).size(); break;
+                        case 8: length = alsymV.get(j).size(); break;
+                    }
+                }
+            }
+
+        }
+
+        return length;
+    }
+
     public Integer getAnumItem(String name, int index)
     {
         Integer value = null;

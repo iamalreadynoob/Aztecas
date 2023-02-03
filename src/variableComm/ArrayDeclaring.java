@@ -305,13 +305,18 @@ public class ArrayDeclaring
         {
             ArrayList<String> temp = var.getVarNames(i);
 
-            for (int j = 0; j < temp.size(); j++)
+            if (temp != null)
             {
 
-                if (name.equals(temp.get(j)))
+                for (int j = 0; j < temp.size(); j++)
                 {
-                    isOkay = false;
-                    break;
+
+                    if (name.equals(temp.get(j)))
+                    {
+                        isOkay = false;
+                        break;
+                    }
+
                 }
 
             }

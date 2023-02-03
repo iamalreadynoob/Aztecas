@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class ReservedFunctionsList
 {
 
-    private ArrayList<String> reserved;
+    private ArrayList<String> reserved = new ArrayList<>();
 
     public ReservedFunctionsList()
     {

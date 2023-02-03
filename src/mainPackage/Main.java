@@ -13,11 +13,13 @@ public class Main
 
     public static void main(String[] args)
     {
-        String test = "bak bugün şimdi bunun çalışması gerekli. <num a, num b> endline; naber başkan";
+        String test = "num sayi = 10; io oput sayi;";
 
         Collector collector = new Collector(test);
 
         nodes = collector.getSlicedCode();
+
+        System.out.println(nodes);
 
         new Processor(nodes);
 

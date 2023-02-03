@@ -23,8 +23,8 @@ public class MethodDetection
             while (location < command.size())
             {
                 String varName = command.get(location);
-                Integer varType = null;
-                Integer datatype = null;
+                Integer[] varType = new Integer[1];
+                Integer[] datatype = new Integer[1];
 
                 if (command.get(location).equals("\""))
                 {
@@ -50,10 +50,10 @@ public class MethodDetection
                 else if (isExist(varName, varType, datatype, var, arr))
                 {
 
-                    switch (datatype)
+                    switch (datatype[0])
                     {
                         case 0:
-                            if (varType == 0)
+                            if (varType[0] == 0)
                             {
                                 Integer value = var.getNum(varName);
 
@@ -62,7 +62,7 @@ public class MethodDetection
                                 else if (plus == 2) output = output + " " + Integer.toString(value);
                             }
 
-                            else if (varType == 1)
+                            else if (varType[0] == 1)
                             {
                                 location++;
 
@@ -96,7 +96,7 @@ public class MethodDetection
                             break;
 
                         case 1:
-                            if (varType == 0)
+                            if (varType[0] == 0)
                             {
                                 Long value = var.getLnum(varName);
 
@@ -105,7 +105,7 @@ public class MethodDetection
                                 else if (plus == 2) output = output + " " + Long.toString(value);
                             }
 
-                            else if (varType == 1)
+                            else if (varType[0] == 1)
                             {
                                 location++;
 
@@ -135,7 +135,7 @@ public class MethodDetection
                             break;
 
                         case 2:
-                            if (varType == 0)
+                            if (varType[0] == 0)
                             {
                                 Double value = var.getSnum(varName);
 
@@ -144,7 +144,7 @@ public class MethodDetection
                                 else if (plus == 2) output = output + " " + Double.toString(value);
                             }
 
-                            else if (varType == 1)
+                            else if (varType[0] == 1)
                             {
                                 location++;
 
@@ -174,7 +174,7 @@ public class MethodDetection
                             break;
 
                         case 3:
-                            if (varType == 0)
+                            if (varType[0] == 0)
                             {
                                 Integer value = var.getBnum(varName).getValue();
 
@@ -183,7 +183,7 @@ public class MethodDetection
                                 else if (plus == 2) output = output + " " + Integer.toString(value);
                             }
 
-                            else if (varType == 1)
+                            else if (varType[0] == 1)
                             {
                                 location++;
 
@@ -213,7 +213,7 @@ public class MethodDetection
                             break;
 
                         case 4:
-                            if (varType == 0)
+                            if (varType[0] == 0)
                             {
                                 String value = var.getBin(varName).getValue();
 
@@ -222,7 +222,7 @@ public class MethodDetection
                                 else if (plus == 2) output = output + " " + value;
                             }
 
-                            else if (varType == 1)
+                            else if (varType[0] == 1)
                             {
                                 location++;
 
@@ -252,7 +252,7 @@ public class MethodDetection
                             break;
 
                         case 5:
-                            if (varType == 0)
+                            if (varType[0] == 0)
                             {
                                 Boolean value = var.getTruth(varName);
 
@@ -261,7 +261,7 @@ public class MethodDetection
                                 else if (plus == 2) output = output + " " + Boolean.toString(value);
                             }
 
-                            else if (varType == 1)
+                            else if (varType[0] == 1)
                             {
                                 location++;
 
@@ -291,7 +291,7 @@ public class MethodDetection
                             break;
 
                         case 6:
-                            if (varType == 0)
+                            if (varType[0] == 0)
                             {
                                 String value = var.getLtruth(varName).getValue();
 
@@ -300,7 +300,7 @@ public class MethodDetection
                                 else if (plus == 2) output = output + " " + value;
                             }
 
-                            else if (varType == 1)
+                            else if (varType[0] == 1)
                             {
                                 location++;
 
@@ -330,7 +330,7 @@ public class MethodDetection
                             break;
 
                         case 7:
-                            if (varType == 0)
+                            if (varType[0] == 0)
                             {
                                 Character value = var.getSym(varName);
 
@@ -339,7 +339,7 @@ public class MethodDetection
                                 else if (plus == 2) output = output + " " + Character.toString(value);
                             }
 
-                            else if (varType == 1)
+                            else if (varType[0] == 1)
                             {
                                 location++;
 
@@ -369,7 +369,7 @@ public class MethodDetection
                             break;
 
                         case 8:
-                            if (varType == 0)
+                            if (varType[0] == 0)
                             {
                                 String value = var.getLsym(varName);
 
@@ -378,7 +378,7 @@ public class MethodDetection
                                 else if (plus == 2) output = output + " " + value;
                             }
 
-                            else if (varType == 1)
+                            else if (varType[0] == 1)
                             {
                                 location++;
 
@@ -408,7 +408,7 @@ public class MethodDetection
                             break;
                     }
 
-                    if (varType == 0) location++;
+                    if (varType[0] == 0) location++;
 
                 }
 
@@ -437,7 +437,7 @@ public class MethodDetection
 
     }
 
-    private boolean isExist(String varName, Integer varType, Integer datatype, VariableStorage var, ArrayStorage arr)
+    private boolean isExist(String varName, Integer[] varType, Integer[] datatype, VariableStorage var, ArrayStorage arr)
     {
         boolean isExist = false;
 
@@ -451,8 +451,8 @@ public class MethodDetection
                 if (varName.equals(varTemp.get(j)))
                 {
                     isExist = true;
-                    varType = 0;
-                    datatype = i;
+                    varType[0] = 0;
+                    datatype[0] = i;
 
                     break;
                 }
@@ -465,8 +465,8 @@ public class MethodDetection
                     if (varName.equals(arrTemp.get(j)))
                     {
                         isExist = true;
-                        varType = 1;
-                        datatype = i;
+                        varType[0] = 1;
+                        datatype[0] = i;
 
                         break;
                     }

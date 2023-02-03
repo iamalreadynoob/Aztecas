@@ -10,26 +10,26 @@ public class VariableStorage
 {
 
     //Values
-    private ArrayList<Integer> numV = null;
-    private ArrayList<Long> lnumV = null;
-    private ArrayList<Double> snumV = null;
-    private ArrayList<NumericBoolean> bnumV = null;
-    private ArrayList<Binary> binV = null;
-    private ArrayList<Boolean> truthV = null;
-    private ArrayList<ExpandedBoolean> ltruthV = null;
-    private ArrayList<Character> symV = null;
-    private ArrayList<String> lsymV = null;
+    private ArrayList<Integer> numV = new ArrayList<>();
+    private ArrayList<Long> lnumV = new ArrayList<>();
+    private ArrayList<Double> snumV = new ArrayList<>();
+    private ArrayList<NumericBoolean> bnumV = new ArrayList<>();
+    private ArrayList<Binary> binV = new ArrayList<>();
+    private ArrayList<Boolean> truthV = new ArrayList<>();
+    private ArrayList<ExpandedBoolean> ltruthV = new ArrayList<>();
+    private ArrayList<Character> symV = new ArrayList<>();
+    private ArrayList<String> lsymV = new ArrayList<>();
 
     //Names
-    private ArrayList<String> numN = null;
-    private ArrayList<String> lnumN = null;
-    private ArrayList<String> snumN = null;
-    private ArrayList<String> bnumN = null;
-    private ArrayList<String> binN = null;
-    private ArrayList<String> truthN = null;
-    private ArrayList<String> ltruthN = null;
-    private ArrayList<String> symN = null;
-    private ArrayList<String> lsymN = null;
+    private ArrayList<String> numN = new ArrayList<>();
+    private ArrayList<String> lnumN = new ArrayList<>();
+    private ArrayList<String> snumN = new ArrayList<>();
+    private ArrayList<String> bnumN = new ArrayList<>();
+    private ArrayList<String> binN = new ArrayList<>();
+    private ArrayList<String> truthN = new ArrayList<>();
+    private ArrayList<String> ltruthN = new ArrayList<>();
+    private ArrayList<String> symN = new ArrayList<>();
+    private ArrayList<String> lsymN = new ArrayList<>();
 
     //getter methods
 

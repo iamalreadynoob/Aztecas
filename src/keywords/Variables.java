@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Variables
 {
-    private static ArrayList<String> var_keywords;
+    private static ArrayList<String> var_keywords = new ArrayList<>();
 
     protected Variables()
     {

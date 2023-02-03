@@ -2,6 +2,7 @@ package mainProcessor;
 
 import keywords.KeywordDetection;
 import keywords.KeywordTypes;
+import reservedIO.MethodDetection;
 import storage.ArrayStorage;
 import storage.VariableStorage;
 import variableComm.ArrayDeclaring;
@@ -27,9 +28,9 @@ public class Processor
         while (location < process.size())
         {
 
-            ArrayList<String> currentCommand = null;
+            ArrayList<String> currentCommand = new ArrayList<>();
 
-            while (!process.get(location).equals(";") || !process.get(location).equals("end"))
+            while (!process.get(location).equals(";"))
             {
 
                 currentCommand.add(process.get(location));
@@ -39,11 +40,14 @@ public class Processor
 
             }
 
+            System.out.println(currentCommand);
+
             for (int i = 0; i < currentCommand.size(); i++)
             {
 
                 KeywordDetection keywordDetection = new KeywordDetection();
                 KeywordTypes keyword = keywordDetection.keywordDetect(currentCommand.get(i));
+                boolean done = false;
 
                 switch (keyword)
                 {
@@ -51,20 +55,29 @@ public class Processor
                         if (currentCommand.get(i).charAt(0) != 'a')
                         {
                             new VariableDeclaring(currentCommand, variableStorage);
+                            done = true;
                         }
 
                         else
                         {
                             new ArrayDeclaring(currentCommand, arrayStorage);
+                            done = true;
                         }
 
                     case RESF:
                         if (currentCommand.get(i).equals("io"))
                         {
-
+                            new MethodDetection(currentCommand, variableStorage, arrayStorage);
+                            done = true;
                         }
 
 
+                }
+
+                if (done == true)
+                {
+                    location ++;
+                    break;
                 }
 
             }

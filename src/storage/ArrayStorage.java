@@ -9,26 +9,26 @@ import java.util.ArrayList;
 public class ArrayStorage
 {
 
-    private ArrayList<ArrayList<Integer>> anumV = null;
-    private ArrayList<ArrayList<Long>> alnumV = null;
-    private ArrayList<ArrayList<Double>> asnumV = null;
-    private ArrayList<ArrayList<NumericBoolean>> abnumV = null;
-    private ArrayList<ArrayList<Binary>> abinV = null;
-    private ArrayList<ArrayList<Boolean>> atruthV = null;
-    private ArrayList<ArrayList<ExpandedBoolean>> altruthV = null;
-    private ArrayList<ArrayList<Character>> asymV = null;
-    private ArrayList<ArrayList<String>> alsymV = null;
+    private ArrayList<ArrayList<Integer>> anumV = new ArrayList<>();
+    private ArrayList<ArrayList<Long>> alnumV = new ArrayList<>();
+    private ArrayList<ArrayList<Double>> asnumV = new ArrayList<>();
+    private ArrayList<ArrayList<NumericBoolean>> abnumV = new ArrayList<>();
+    private ArrayList<ArrayList<Binary>> abinV = new ArrayList<>();
+    private ArrayList<ArrayList<Boolean>> atruthV = new ArrayList<>();
+    private ArrayList<ArrayList<ExpandedBoolean>> altruthV = new ArrayList<>();
+    private ArrayList<ArrayList<Character>> asymV = new ArrayList<>();
+    private ArrayList<ArrayList<String>> alsymV = new ArrayList<>();
 
     //array name
-    private ArrayList<String> anumN = null;
-    private ArrayList<String> alnumN = null;
-    private ArrayList<String> asnumN = null;
-    private ArrayList<String> abnumN = null;
-    private ArrayList<String> abinN = null;
-    private ArrayList<String> atruthN = null;
-    private ArrayList<String> altruthN = null;
-    private ArrayList<String> asymN = null;
-    private ArrayList<String> alsymN = null;
+    private ArrayList<String> anumN = new ArrayList<>();
+    private ArrayList<String> alnumN = new ArrayList<>();
+    private ArrayList<String> asnumN = new ArrayList<>();
+    private ArrayList<String> abnumN = new ArrayList<>();
+    private ArrayList<String> abinN = new ArrayList<>();
+    private ArrayList<String> atruthN = new ArrayList<>();
+    private ArrayList<String> altruthN = new ArrayList<>();
+    private ArrayList<String> asymN = new ArrayList<>();
+    private ArrayList<String> alsymN = new ArrayList<>();
 
 
     public void createArray(int typeCode, ArrayList array, String name)
